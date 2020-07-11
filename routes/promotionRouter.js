@@ -9,7 +9,7 @@ promotionRouter.use(bodyParser.json());
 promotionRouter
   .route("/")
   .get((req, res, next) => {
-    Partner.find()
+    Promotion.find()
       .then((promotions) => {
         res.statusCode = 200;
         res.setHeader("Content-Type", "application/json");
