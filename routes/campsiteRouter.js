@@ -17,6 +17,7 @@ campsiteRouter
       })
       .catch((err) => next(err));
   })
+
   .post((req, res, next) => {
     Campsite.create(req.body)
       .then((campsite) => {
@@ -27,10 +28,12 @@ campsiteRouter
       })
       .catch((err) => next(err));
   })
+
   .put((req, res) => {
     res.statusCode = 403;
     res.end("PUT operation not supported on /campsites");
   })
+
   .delete((req, res, next) => {
     Campsite.deleteMany()
       .then((response) => {
@@ -52,12 +55,14 @@ campsiteRouter
       })
       .catch((err) => next(err));
   })
+
   .post((req, res) => {
     res.statusCode = 403;
     res.end(
       `POST operation not supported on /campsites/${req.params.campsiteId}`
     );
   })
+
   .put((req, res, next) => {
     Campsite.findByIdAndUpdate(
       req.params.campsiteId,
@@ -73,6 +78,7 @@ campsiteRouter
       })
       .catch((err) => next(err));
   })
+
   .delete((req, res, next) => {
     Campsite.findByIdAndDelete(req.params.campsiteId)
       .then((response) => {
